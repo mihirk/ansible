@@ -1,0 +1,12 @@
+- hosts: all
+  remote_user: vagrant
+  sudo: yes
+  vars:
+    env:
+      JAVA_HOME: "{{ java_home }}"
+  roles:
+    # - utils
+    # - repos
+    # - hosts
+    # - ziptools
+    - java

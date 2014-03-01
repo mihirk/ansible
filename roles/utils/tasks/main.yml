@@ -1,0 +1,6 @@
+    - name: Install git
+      yum: pkg=git state=latest
+    - name: Install ruby
+      yum: pkg=ruby state=latest
+    - name: Install wget
+      yum: pkg=wget

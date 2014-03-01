@@ -1,0 +1,21 @@
+- name: Create temp directory
+  file: path="{{ temp_directory_path }}{{ item }}" owner={{ root }} state=directory
+  with_items:
+     - "{{temp_directory_name}}"
+     - "{{temp_directory_name}}/{{ temp_directory_logs }}"
+- name: Create logs in temp directory
+  file: path="{{ temp_directory_path }}{{ temp_directory_name }}/{{ temp_directory_logs }}" owner={{ root }} state=directory
+- name: Set timezone to required
+  action: file src="{{ timezone }}" dest="{{ localtime_path }}" state=link force=yes
+- name: Install ntp
+  yum: pkg=ntp state=latest
+- name: NTP checkconfig
+  command: "chkconfig ntpd on {{ host_log_expression }}"
+- name: NTP time clock synchronization
+  command: "ntpdate -u pool.ntp.org {{ host_log_expression }}"
+- name: Ensure ntpd is running
+  service: name=ntpd state=started enabled=yes
+- name: SELinux disabled from Enforcing
+  command: "sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config"
+- name: SELinux disabled from Permissive
+  command: "sed -i 's/SELINUX=permissive/SELINUX=disabled/g' /etc/selinux/config"
