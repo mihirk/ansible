@@ -5,8 +5,8 @@
     env:
       JAVA_HOME: "{{ java_home }}"
   roles:
-    # - utils
-    # - repos
-    # - hosts
-    # - ziptools
+    - utils
+    - repos
+    - hosts
+    - ziptools
     - java

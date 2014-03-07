@@ -1,4 +1,4 @@
 - name: Installs OpenJDK 1.7
   yum: pkg=java-1.7.0-openjdk
 - name: Setting JAVA_HOME
-  command: "export JAVA_HOME='{{ java_home }}'"
+  template: src=java_home_export.sh dest=/etc/profile.d/java_home_export.sh mode=0644 owner=root
