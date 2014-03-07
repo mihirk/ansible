@@ -1,1 +1,4 @@
 java_home: /usr/lib/jvm/java-1.7.0-openjdk-1.7.0.51.x86_64
+tools_path: /servers/tools.jar
+repo_url: "http://172.18.2.14/packages"
+java_home_jre_lib: "{{java_home}}/jre/lib"

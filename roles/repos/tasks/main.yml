@@ -52,3 +52,8 @@
                 section=pgdg92-source
                 option=enabled
                 value=1
+    - name: postgres source repository enable
+      ini_file: dest=/etc/yum.repos.d/repo-bootstrap.repo
+                section=customrepo
+                option=enabled
+                value=1
