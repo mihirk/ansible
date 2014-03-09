@@ -1,2 +1,2 @@
 java_home: /usr/lib/jvm/java-1.7.0-openjdk-1.7.0.51.x86_64
-repo_url: "http://172.18.2.14/packages"
+repo_url: http://172.18.2.14/packages

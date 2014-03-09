@@ -2,5 +2,3 @@
   yum: pkg=java-1.7.0-openjdk
 - name: Setting JAVA_HOME
   template: src=java_home_export.sh dest=/etc/profile.d/java_home_export.sh mode=0644 owner=root
-- name: Download tools.java
-  copy: src="{{ repo_url }}{{ tools_path }}" dest={{ java_home_jre_lib }} force=no

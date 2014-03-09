@@ -52,8 +52,15 @@
                 section=pgdg92-source
                 option=enabled
                 value=1
-    - name: postgres source repository enable
-      ini_file: dest=/etc/yum.repos.d/repo-bootstrap.repo
+    - name: Bootstrap install epel epel debug
+      copy: src=customrepo.repo
+            dest=/etc/yum.repos.d/
+            owner=root group=root mode=0644
+    - name: add custom repo
+      ini_file: dest=/etc/yum.repos.d/customrepo.repo
                 section=customrepo
                 option=enabled
                 value=1
+    - name: Remove bootstrap repo
+      file: path=/etc/yum.repos.d/repo-bootstrap.repo
+            owner=root group=root mode=0644 state=absent

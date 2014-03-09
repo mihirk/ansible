@@ -1,0 +1,16 @@
+- name: Install MySQL-shared-compat
+  yum: pkg=MySQL-shared-compat state=latest
+- name: Install MySQL-shared
+  yum: pkg=MySQL-shared state=latest
+- name: Install MySQL-client
+  yum: pkg=MySQL-client state=latest
+- name: Install MySQL-server
+  yum: pkg=MySQL-server state=latest
+- name: Copy mysql server configuration
+  copy: src=mysql-server-configuration.cnf dest=/etc/my.cnf
+- name: Stop mysql
+  service: name=mysql state=stopped
+- name: Install python mysql
+  yum: pkg=MySQL-python state=latest
+- name: Mysql update password for root
+  mysql_user: name=root password={{ mysql_root_password }} priv=*.*:ALL,GRANT state=present
