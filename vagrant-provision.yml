@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: vagrant
   remote_user: vagrant
   sudo: yes
   vars:
