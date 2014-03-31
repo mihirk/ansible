@@ -10,4 +10,4 @@
     - hosts
     - ziptools
     - java
-    - mysql
+    # - mysql
